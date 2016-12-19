@@ -1,0 +1,13 @@
+---
+- name: create scripts directory
+  file: path=/root/scripts state=directory
+
+- name: copy setup-ds-admin.inf template
+  template: src=setup-ds-admin.inf.j2 dest=/root/scripts/setup-ds-admin.inf owner=root group=root mode=0600
+
+- name: create ds instance
+  command: setup-ds-admin.pl -s -f /root/scripts/setup-ds-admin.inf creates=/etc/dirsrv/slapd-{{ instance }}/dse.ldif
+  notify:
+    - enable dirsrv
+    - enable dirsrv-admin
+    - remove cert db

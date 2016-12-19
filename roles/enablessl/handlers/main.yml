@@ -1,0 +1,6 @@
+---
+- name: restart dirsrv
+  service: name=dirsrv.target state=restarted
+
+- name: restart dirsrv-admin
+  service: name=dirsrv-admin.service state=restarted
