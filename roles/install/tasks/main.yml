@@ -9,6 +9,9 @@
     - xorg-x11-xauth
     - dejavu*
 
+- name: set file descriptors for RHDS
+  lineinfile: dest=/etc/sysconfig/dirsrv.systemd insertafter=EOF line="LimitNOFILE=8192" state=present
+
 - name: configure firewall
   firewalld: port={{item}} permanent=true state=enabled
   with_items:
