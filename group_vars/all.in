@@ -9,7 +9,40 @@ instance: "<instance_name>"
 suffix: "<suffix>"
 poolid: <pool_id_for sub_to_attach>
 
-# Define replication agreements below
+# Example replication setup:
+# 
+# 
+#     +---------+        +---------+
+#     | <host1> |        | <host2> |
+#     |         |[1]---->|         |
+#     | CA      |<----[2]| master  |
+#     | master  |        |         |
+#     |         |        |         |
+#     +---------+        +---------+
+#      [3]   [4]          [5]   [6]
+#       |      \          /      |
+#       |       \        /       |
+#       |        \      /        |
+#       |         \    /         |
+#       |          \  /          |
+#       |           \/           |
+#       |           /\           |
+#       |          /  \          |
+#       |         /    \         |
+#       |        /      \        |
+#       |       /        \       |
+#       |      /          \      |
+#       V     V            V     V
+#     +---------+        +---------+
+#     | <host3> |        | <host4> |
+#     |         |        |         |
+#     | slave   |        | slave   |
+#     |         |        |         |
+#     |         |        |         |
+#     +---------+        +---------+
+#
+
+# Define replication agreements
 # All agreements should be added to the agreements array for sorting purposes
 agreements: [1, 2, 3, 4, 5 ,6]
 
