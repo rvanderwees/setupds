@@ -13,7 +13,7 @@
     - xorg-x11-xauth
     - dejavu*
 
-- name: Create group rvanderw
+- name: Create dirsrv group
   group: name=dirsrv gid=389 state=present
   when: ansible_distribution_major_version == "6"
 
