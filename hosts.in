@@ -5,5 +5,5 @@
 <host2> ansible_host=<host2_ip> replicaid=<1002>
 
 [slaves]
-<host3> ansible_host=<host3_ip> replicaid=65535
-<host4> ansible_host=<host4_ip> replicaid=65535
+<host3> ansible_host=<host3_ip>
+<host4> ansible_host=<host4_ip>
