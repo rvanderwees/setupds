@@ -22,7 +22,8 @@ InstScriptsEnabled = true
 
 [admin] 
 Port = 9830
-SysUser = dirsrv
+{% if ansible_distribution_major_version == "7" %}SysUser = dirsrv
+{% endif %}
 ServerIpAddress = 0.0.0.0
 ServerAdminID = admin 
 ServerAdminPwd = {{ dmpasswd }}

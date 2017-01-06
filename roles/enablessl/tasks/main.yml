@@ -29,7 +29,9 @@
 
 - name: enable ssl
   shell: ldapmodify -x -H ldap://127.0.0.1/ -D "cn=Directory Manager" -w "{{ dmpasswd }}" -f /root/scripts/enable-ssl.ldif && touch /root/scripts/enable-ssl.ldif.done creates=/root/scripts/enable-ssl.ldif.done
-  notify: restart dirsrv
+  notify:
+    - restart dirsrv
+    - restart dirsrv.target
 
 - name: disable TLS_CACERTDIR in ldap.conf
   lineinfile: dest=/etc/openldap/ldap.conf regexp="^(TLS_CACERTDIR.*$)" line="#\1" backrefs=yes

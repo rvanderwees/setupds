@@ -9,6 +9,7 @@
   notify: 
     - add subscription
     - disable all repos
-    - enable RHEL + RHDS repos
+    - enable RHEL + RHDS9 repos
+    - enable RHEL + RHDS10 repos
 
 - meta: flush_handlers
