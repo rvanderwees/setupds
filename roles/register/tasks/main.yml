@@ -1,7 +1,7 @@
 ---
 - name: register to RH customer portal
   redhat_subscription:
-    consumer_name: "{{ systemname_prefix }}-{{ ansible_hostname }}"
+    consumer_name: "{{ systemname_prefix }}{{ ansible_hostname }}"
     autosubscribe: no
     password: "{{ portal_password }}"
     username: "{{ portal_username }}"
